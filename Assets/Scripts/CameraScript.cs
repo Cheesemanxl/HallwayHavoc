@@ -7,11 +7,6 @@ public class CameraScript : MonoBehaviour
     public Transform player;
     private float offset = 7.0f;
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {

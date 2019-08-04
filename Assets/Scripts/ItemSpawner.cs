@@ -14,12 +14,6 @@ public class ItemSpawner : MonoBehaviour
     private int choice = 0;
     private int chances = 4;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

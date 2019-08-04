@@ -7,12 +7,6 @@ public class BasicEnemy : MonoBehaviour
     private int count;
     private bool teardropTattoo = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

@@ -10,8 +10,6 @@ public class Treasure : MonoBehaviour
     public SpriteRenderer spriteRender;
     public Sprite opened;
 
-
-
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();

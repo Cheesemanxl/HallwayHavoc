@@ -13,11 +13,11 @@ public class Menu : MonoBehaviour
         if (highlight != null) {
             if (female)
             {
-                highlight.position = new Vector3(5.0f, -3.425f, 0.0f);
+                highlight.position = new Vector3(4.0f, -3f, 0.0f);
             }
             else
             {
-                highlight.position = new Vector3(6.95f, -3.425f, 0.0f);
+                highlight.position = new Vector3(5.95f, -3f, 0.0f);
             }
         }
     }

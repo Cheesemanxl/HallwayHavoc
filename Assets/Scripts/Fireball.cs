@@ -6,12 +6,6 @@ public class Fireball : MonoBehaviour
 {
     private int count = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         transform.position += Vector3.right * 20.0f * Time.deltaTime;
