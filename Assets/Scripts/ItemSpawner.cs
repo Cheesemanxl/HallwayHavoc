@@ -9,8 +9,10 @@ public class ItemSpawner : MonoBehaviour
     private Vector3 lastDrop;
     private Vector3 pos;
     private float rand = 0.0f;
-    private int count;
+    private int count = 0;
     private bool spawned;
+    private int choice = 0;
+    private int chances = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -24,14 +26,19 @@ public class ItemSpawner : MonoBehaviour
         DelaySpawn();
     }
 
-    void ChooseSpawn()
+    void SpawnObj()
     {
-        for (int i = 0; i < prefabs.Length; i++)
+        for (int i = 0; i < chances; i++)
         {
+            ChooseSpawn();
+
             rand = Random.value;
 
             if (rand < 0.5f && spawned == false) {
-                Instantiate(prefabs[i], transform.position, transform.rotation);
+
+                if (player != null) {
+                    Instantiate(prefabs[choice], transform.position, transform.rotation);
+                }
                 spawned = true;
             }
         }
@@ -41,14 +48,48 @@ public class ItemSpawner : MonoBehaviour
 
     void DelaySpawn()
     {
-        if (count < 432)
+        if (count < 360)
         {
             count++;
         }
         else
         {
-            ChooseSpawn();
+            SpawnObj();
             count = 0;
+        }
+    }
+
+    void ChooseSpawn()
+    {
+        rand = Random.value;
+
+        if (rand <= 0.16)
+        {
+            choice = 0;
+        }
+        else if (rand > 0.16f && rand <= 0.32f)
+        {
+            choice = 1;
+        }
+        else if (rand > 0.32f && rand <= 0.48f)
+        {
+            choice = 2;
+        }
+        else if (rand > 0.48f && rand <= 0.64f)
+        {
+            choice = 3;
+        }
+        else if (rand > 0.64f && rand <= 0.8f)
+        {
+            choice = 4;
+        }
+        else if (rand > 0.8f && rand <= 1.0f)
+        {
+            choice = 5;
+        }
+        else
+        {
+            choice = 0;
         }
     }
 }

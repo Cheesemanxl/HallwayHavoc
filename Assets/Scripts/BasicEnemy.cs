@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicEnemy : MonoBehaviour
 {
     private int count;
+    private bool teardropTattoo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,31 +16,40 @@ public class BasicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!teardropTattoo)
+        {
+            DestroyAfterDelay();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         PlayerScript player = col.GetComponent<PlayerScript>();
-        Weapon weapon = col.GetComponent<Weapon>();
+        Sword sword = col.GetComponent<Sword>();
+        Fireball fireball = col.GetComponent<Fireball>();
 
         if (player != null)
         {
             player.TakeDmg();
-            DeathCount();
+            teardropTattoo = true;
         }
 
-        if (weapon != null)
+        if (sword != null)
         {
             Destroy(gameObject);
         }
 
+        if (fireball != null)
+        {
+            Destroy(gameObject);
+            Destroy(fireball.gameObject);
+        }
+
     }
 
-    void DeathCount()
+    void DestroyAfterDelay()
     {
-
-        if (count < 144)
+        if (count < 720)
         {
             count++;
         }
@@ -47,6 +57,5 @@ public class BasicEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 }
