@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float speed = 1.0f;
+    private float speed = 0.1f;
     public int hp = 3;
     public int score = 0;
     public Transform weapon;
@@ -43,8 +43,8 @@ public class PlayerScript : MonoBehaviour
             {
                 items[itemNum].SetActive(false);
 
-                if (transform.position.y > -15.0f) {
-                    transform.position = new Vector3(transform.position.x, transform.position.y - (speed * Time.deltaTime), transform.position.z);
+                if (transform.position.y > -8.0f) {
+                    transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
                 }
                 else
                 {
@@ -139,7 +139,7 @@ public class PlayerScript : MonoBehaviour
     void Movement()
     {
 
-        transform.position = new Vector3 (transform.position.x + (speed * Time.deltaTime), transform.position.y, transform.position.z);
+        transform.position = new Vector3 (transform.position.x + speed, transform.position.y, transform.position.z);
 
     }
 
@@ -188,6 +188,18 @@ public class PlayerScript : MonoBehaviour
             {
                 items[i].SetActive(false);
             }
+        }
+    }
+
+    void SetSpeed()
+    {
+        if(score >= 20)
+        {
+            speed = score / 100.0f;
+        }
+        else
+        {
+            speed = 0.2f;
         }
     }
 

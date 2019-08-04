@@ -7,6 +7,10 @@ public class Treasure : MonoBehaviour
     private int count = 0;
     private bool activated = false;
     public PlayerScript player;
+    public SpriteRenderer spriteRender;
+    public Sprite opened;
+
+
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class Treasure : MonoBehaviour
         if (key != null)
         {
             activated = true;
+            spriteRender.sprite = opened;
         }
 
         if (player != null)

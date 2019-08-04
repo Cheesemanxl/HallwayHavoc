@@ -20,10 +20,13 @@ public class Background : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pLoc = player.position;
-        t1Loc = tm1.position;
-        t2Loc = tm2.position;
-        t3Loc = tm3.position;
+        if (player != null) {
+            pLoc = player.position;
+            t1Loc = tm1.position;
+            t2Loc = tm2.position;
+            t3Loc = tm3.position;
+        }
+        
     }
 
     // Update is called once per frame

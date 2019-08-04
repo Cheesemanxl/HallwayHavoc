@@ -5,25 +5,79 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool female;
+    public Transform highlight;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (highlight != null) {
+            if (female)
+            {
+                highlight.position = new Vector3(5.0f, -3.425f, 0.0f);
+            }
+            else
+            {
+                highlight.position = new Vector3(6.95f, -3.425f, 0.0f);
+            }
+        }
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
+    }
+
+    public void Quit()
+    {
+
+        Application.Quit();
+    }
+
+    public void ToggleGender()
+    {
+
+        if (female)
+        {
+            female = false;
+        }
+        else
+        {
+            female = true;
+        }
+    }
+
+    public void SetGenderMale()
+    {
+
+        female = false;
+    }
+
+    public void SetGenderFemale()
+    {
+
+        female = true;
+    }
+
+    public void StartGame()
+    {
+        if (female)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    public void OpenHowTo()
+    {
+        SceneManager.LoadScene(3);
     }
 }
